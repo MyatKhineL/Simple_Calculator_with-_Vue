@@ -1,10 +1,55 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+
+
+  <div>
+      <h4>Calculator With Vue</h4>
+      <input type="number" v-model.number="FN"><br><br>
+      <select v-model="symbol">
+             <option>+</option>
+             <option>-</option>
+             <option>*</option>
+             <option>/</option>
+      </select><br><br>
+      <input type="number" v-model.number="SN"><br><br>
+      <span>---------------------------------</span><br><br>
+      <span>The answer is  =      {{Calculate}}</span>
+
+  </div>
+ 
 </template>
+
+
+<script>
+export default {
+     data(){
+        return{
+          FN:"",
+          SN:"",
+          symbol:"",
+        }
+
+
+     },
+     computed:{
+           Calculate(){
+               if(this.symbol === "+"){
+                 return this.FN+this.SN;
+
+               }else if(this.symbol === "-"){
+                 return this.FN-this.SN;
+
+               }else if(this.symbol === "*"){
+                 return this.FN*this.SN;
+
+               }else if(this.symbol === "/"){
+                 return this.FN/this.SN;
+               }
+              }
+     },
+}
+</script>
+
+
 
 <style lang="scss">
 #app {
